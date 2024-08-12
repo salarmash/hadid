@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'TeamApp',
     'ContactApp',
     'ProjectApp',
+    'ServiceApp',
+    'BlogApp',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Adjust this to match your frontend's URL
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2
+}
