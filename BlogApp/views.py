@@ -43,3 +43,17 @@ class SingleCategoryView(APIView):
         data['posts'] = BlogSerializer(post, many=True, context={'request': request}).data
         data['category'] = CategorySerializer(instance=category).data
         return Response(data=data, status=status.HTTP_200_OK)
+
+
+class Recent(APIView):
+    def get(self, request):
+        recent = Blog.objects.all()[:3]
+        data = BlogSerializer(recent, many=True, context={'request': request}).data
+        return Response(data=data, status=status.HTTP_200_OK)
+
+
+class Popular(APIView):
+    def get(self, request):
+        popular = Blog.objects.filter(popular=True)[:3]
+        data = BlogSerializer(popular, many=True, context={'request': request}).data
+        return Response(data=data, status=status.HTTP_200_OK)

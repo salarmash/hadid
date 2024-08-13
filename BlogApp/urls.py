@@ -8,4 +8,6 @@ urlpatterns = [
     path("<int:pk>", views.SinglePost.as_view()),
     path("category/<int:pk>", views.SingleCategoryView.as_view()),
     path("category", views.AllCategoryView.as_view()),
+    path("recent", views.Recent.as_view()),
+    path("popular", views.Popular.as_view())
 ]

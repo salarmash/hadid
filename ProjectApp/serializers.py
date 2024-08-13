@@ -73,3 +73,5 @@ class ProjectSerializer(serializers.ModelSerializer):
         if obj.image:
             image_url = obj.image.url
             return request.build_absolute_uri(image_url)
+
+

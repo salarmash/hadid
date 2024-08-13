@@ -20,6 +20,7 @@ class Blog(models.Model):
     category_slug = models.CharField(max_length=255, verbose_name="اسلاگ")
     author = models.CharField(max_length=255, verbose_name="نویسنده")
     date = models.DateTimeField(auto_now_add=True)
+    popular = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -35,6 +36,7 @@ class Full(models.Model):
     introTitle = models.CharField(max_length=255, verbose_name="عنوان")
     author = models.CharField(max_length=255, verbose_name="عنوان توضیحات")
     content_desc = models.TextField(verbose_name="متن توضیحات")
+    content_des2 = models.TextField(verbose_name="متن توضیحات", default=" ")
 
     class Meta:
         verbose_name = "توضیحات"
